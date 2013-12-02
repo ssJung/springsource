@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="mvc26_sungjukdb_mybatisanno">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="mvc26_sungjukdb_mybatisanno"/>
+        <property name="java-output-path" value="/mvc26_sungjukdb_mybatisanno/build/classes"/>
+    </wb-module>
+</project-modules>

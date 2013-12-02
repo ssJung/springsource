@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Sangpum">
+
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <typeAlias alias="dto" type="day1.sangpum.SangpumDTO"/>
+  <select id="selectAllDatas" resultClass="dto">
+  	select * from sangpum order by code asc
+  </select>
+  <insert id="insertSangpum" parameterClass="dto">
+  	insert into sangpum values (seq1.nextval,#pum#,#su#,#dan#)
+  </insert>
+</sqlMap>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- 스프링의 전통적인 매핑방법,생성자를 통한 객체 주입 -->
+	<bean name="writeArticle"
+	 class="day1.spring.WriteArticleServiceImpl">
+	 	<constructor-arg>
+	 		<ref bean="articleDao"/>
+	 	</constructor-arg>
+	 </bean>
+	<bean name="articleDao" class="day1.spring.MySqlArticleDao"/>
+
+</beans>

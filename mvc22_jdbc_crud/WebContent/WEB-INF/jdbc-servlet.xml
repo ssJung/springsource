@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+<!-- HandlerMapping -->
+<!-- <bean id="defaultHandlerMapping"
+	class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+ --> 
+ 
+<!-- Controller-->	
+<!-- 목록보기 -->
+<bean class="com.spring.controller.SelectListController">
+	<property name="memberProcessDao" ref="memberProcessDao"/>
+</bean>
+<bean class="com.spring.controller.InsertController">
+	<property name="processDao" ref="memberProcessDao"/>
+</bean>
+<bean class="com.spring.controller.SelectPartController">
+	<property name="processDao" ref="memberProcessDao"/>
+</bean>
+<bean class="com.spring.controller.UpdateController">
+	<property name="processDao" ref="memberProcessDao"/>
+</bean>
+<bean class="com.spring.controller.DeleteController">
+	<property name="processDao" ref="memberProcessDao"/>
+</bean>
+<!-- ViewResolver -->
+<bean id="viewResolver"
+	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/"/>
+	<property name="suffix" value=".jsp"/><!-- /list1.jsp -->
+</bean>
+
+</beans>

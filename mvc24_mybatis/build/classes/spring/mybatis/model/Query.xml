@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mem">
+	<select id="selectAllData" resultType="dto">
+		select * from mem order by num asc
+	</select>
+	<insert id="insertData" parameterType="formBean">
+		insert into mem values (seq_db.nextval,#{name},
+		#{addr},#{blood})
+	</insert>
+	<select id="selectPart" parameterType="String"
+			 resultType="dto">
+		select * from mem where num=#{num}
+	</select>
+	<update id="updateData" parameterType="formBean">
+		update mem set name=#{name},addr=#{addr},blood=#{blood}
+  	 where num=#{num}
+	</update>
+	<delete id="deleteData" parameterType="String">
+		delete from mem where num=#{num}
+	</delete>
+</mapper>
+
+
+
+
+
+
+

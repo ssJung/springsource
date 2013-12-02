@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+<bean id="mbean" class="day1.spring.di.MessageInterImpl">
+	<!-- 생성자 주입..순서 변경 -->
+	<constructor-arg index="1">
+		<value>안녕하세요</value>
+	</constructor-arg>
+	<constructor-arg index="0">
+		<value>반갑습니다</value>
+	</constructor-arg>
+	<constructor-arg>
+		<value>2013</value>
+	</constructor-arg>
+	
+	<!-- setter를 통한 주입 -->
+	<property name="spec">
+		<value>OCJP,정보처리기사1급 자격증</value>
+	</property>
+	<property name="inter">
+		<ref bean="fileInter"/>
+	</property>
+</bean>
+
+<bean id="fileInter" class="day1.test.OutFileInterImpl">
+	<property name="filePath">
+		<value>D:/weekspring/study.txt</value>
+	</property>
+</bean>
+</beans>
+
+
+
+

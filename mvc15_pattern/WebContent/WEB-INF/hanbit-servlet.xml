@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+<!-- HandlerMapping -->
+<!-- <bean id="defaultHandlerMapping"
+	class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+ --> 
+ 
+ <!-- 방법2 패턴매칭 -->
+  <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+  	<property name="alwaysUseFullPath" value="true"/>
+  	<property name="mappings">
+  		<props>
+  			<!-- <prop key="*.do">hi</prop> -->
+  			<!-- <prop key="/**/*.do">hi</prop> -->
+  			<prop key="/?????/*.do">hi</prop>
+  			<!-- <prop key="/abc/hello.do">world</prop> -->
+  			<prop key="/???/*.do">world</prop>
+  		</props>
+  	</property>
+  </bean>
+<!-- Controller-->	
+<bean name="hi" class="pack.HelloAction"/>
+<bean name="world" class="pack.WorldAction"/>
+
+<!-- ViewResolver -->
+<bean id="viewResolver"
+	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/"/>
+	<property name="suffix" value=".jsp"/><!-- /list1.jsp -->
+</bean>
+
+</beans>

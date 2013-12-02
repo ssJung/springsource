@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+ <properties resource="day1/setting/mybatis/db.properties" />
+ <typeAliases>
+ 	<typeAlias type="day1.sangpum.SangpumDTO" alias="dto"/>
+ </typeAliases>
+ <environments default="">
+  <environment id="">
+   <transactionManager type="JDBC" />
+   <dataSource type="POOLED">
+    <property name="driver" value="${driver}" />
+    <property name="url" value="${url}" />
+    <property name="username" value="${username}" />
+    <property name="password" value="${password}" />
+   </dataSource>
+  </environment>
+ </environments>
+ <mappers>
+  <mapper resource="day1/setting/mybatis/DataMapper.xml" />
+ </mappers>
+</configuration>

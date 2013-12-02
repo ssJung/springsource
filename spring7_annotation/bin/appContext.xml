@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+ <!-- 어노테이션 추가할때 같이 클래스 추가해야한다 -->
+ <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+ <bean id="apple" class="spring.test.Apple">
+ 	 	<property name="number" value="7"/>
+ </bean>
+ <bean name="monitor" class="spring.test2.SystemMonitor">
+ 	<property name="sender">
+ 		<bean class="spring.test2.Sender"/>
+ 	</property>
+ </bean>
+</beans>

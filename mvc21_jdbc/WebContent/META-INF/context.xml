@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="db1"
+	path="/db1"
+	reloadable="true"
+	source="org.eclipse.jst.j2ee.server:db1">
+ <Resource name="jdbc/ora"
+   auth="Container"
+   type="javax.sql.DataSource"
+   username="stu01"
+   password="a1234"
+   driverClassName="oracle.jdbc.driver.OracleDriver"	
+   url="jdbc:oracle:thin:@192.168.0.65:1521:orcl"
+   maxActive="30"
+   maxIdle="5"
+   removeAbandoned="true"></Resource>
+</Context>

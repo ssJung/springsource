@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+<!-- target class 설정 -->
+	<bean id="targetBean" class="spring.aop.MessageImpl">
+		<property name="name">
+			<value>이승기</value>
+		</property>
+	</bean>
+<!-- Advice Bean 설정 -->
+	<bean id="loggingAdvice" class="spring.aop.LoggingAdvice"/>
+	
+<!-- proxy 를 이용한 접근방법 -->
+	<bean id="proxy"
+	 class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target">
+			<ref local="targetBean"/>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>hiAdvisor</value>
+			</list>
+		</property>
+	</bean>	
+<!-- Advisor : Advice+Pointcut -->
+   <bean id="hiAdvisor"
+   	class="org.springframework.aop.support.DefaultPointcutAdvisor">
+   	<property name="advice">
+   		<ref local="loggingAdvice"/>
+   	</property>
+   	<property name="pointcut">
+   		<bean class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+   			<property name="pattern">
+   				<!-- 정규식표현.sayHi로시작하며 파라미터 없는 메소드 -->
+   				<value>.*sayHi*</value>
+   			</property>
+   		</bean>
+   	</property>
+   </bean>	
+</beans>
+
+
+
+
+
+

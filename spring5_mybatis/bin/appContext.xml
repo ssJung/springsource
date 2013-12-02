@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="process" class="day1.sangpum.Process">
+		<constructor-arg ref="model"/>
+	</bean>
+	<bean id="process2" class="day1.sangpum.Process2">
+		<property name="inter">
+			<ref bean="model"/>
+		</property>
+	</bean>
+	<bean id="model" class="day1.sangpum.SangpumModel"/>
+</beans>

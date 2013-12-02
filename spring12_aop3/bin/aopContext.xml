@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	
+	<bean id="profileAdvice" class="spring.main.ProfileAdvice"/>
+	<aop:config>
+		<aop:aspect id="traceAspect" ref="profileAdvice">
+			<!-- spring 폴더에 있는 public 메소드들 -->
+			<aop:pointcut  id="publicMethod" expression="execution(public * spring..*(..))"/>
+			<aop:around method="trace" pointcut-ref="publicMethod"/>
+		</aop:aspect>
+	</aop:config>
+
+	<bean id="serviceImpl" class="spring.service.WriteArticleServiceImpl">
+		<constructor-arg>
+			<ref bean="mySqlDao"/>
+		</constructor-arg>
+	</bean>
+	<bean id="mySqlDao" class="spring.dao.MySqlArticleDao"/>
+</beans>
+
+
+
+
+
+
+
+
+
+

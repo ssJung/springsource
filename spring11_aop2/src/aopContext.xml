@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	
+<bean id="loggingAspect" class="spring.aop2.LoggingAspect"/>
+<aop:config>
+	<!-- 경로에상관없이 클래스명에 Interface가 포함되어있고 파라미터가 0개이상인 모든 메소드(하위디렉토리포함) -->
+	<aop:pointcut id="pointcut" expression="execution(* *..*Interface*.*(..))"/>
+	<aop:aspect ref="loggingAspect">
+		<aop:around method="logging" pointcut-ref="pointcut"/>
+	</aop:aspect>
+</aop:config>
+<aop:config>
+	<!-- say로 시작하는 public메소드중 파라미터가 없는 메소드 -->
+	<aop:pointcut id="pointcut2" expression="execution(public void say*(..))"/>
+	<aop:aspect ref="loggingAspect">
+		<aop:around method="logging2" pointcut-ref="pointcut2"/>
+	</aop:aspect>
+</aop:config>
+</beans>

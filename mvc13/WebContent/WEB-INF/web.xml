@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+ <servlet>
+ 	<servlet-name>test</servlet-name>
+ 	<servlet-class>
+ 		org.springframework.web.servlet.DispatcherServlet
+ 	</servlet-class>
+ 	<!-- xml이름이 test-servlet이 아닐경우 필요함 -->
+ 	<init-param>
+ 		<param-name>contextConfigLocation</param-name>
+ 		<param-value>
+ 			/WEB-INF/mbc.xml
+ 			<!-- xml이 여러개일 경우 콤마,공백,탭,엔터등에 의해 구분이 가능 -->
+ 		</param-value>
+ 	</init-param>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>test</servlet-name>
+ 	<url-pattern>*.do</url-pattern>
+ </servlet-mapping>
+</web-app>

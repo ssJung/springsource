@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="myDB">
+
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <typeAlias alias="dto" type="spring.ibatis.model.MemDto"/>
+  <typeAlias alias="formBean" type="spring.ibatis.model.MemBean"/>
+  
+  <select id="selectAllData" resultClass="dto">
+  	select * from mem order by num asc
+  </select>
+  <insert id="insertData" parameterClass="formBean">
+  	insert into mem values (seq_db.nextval,#name#,#addr#,#blood#)
+  </insert>
+  <select id="selectPart" parameterClass="String" resultClass="dto">
+  	select * from mem where num=#num#
+  </select>
+  <update id="updateData" parameterClass="formBean">
+  	update mem set name=#name#,addr=#addr#,blood=#blood#
+  	 where num=#num#
+  </update>
+  <delete id="deleteData" parameterClass="String">
+  	delete from mem where num=#num#
+  </delete>
+</sqlMap>
+
+
+
+
+
+
+
+
+

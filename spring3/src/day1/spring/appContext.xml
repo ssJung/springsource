@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<!--property 의 name은 클래스에서 선언한 멤버변수명  -->
+	<!-- property 의 ref는 bean으로 생성된 클래스 객체 가져올때 -->
+	<bean name="my" class="day1.spring.MyProcess">
+		<property name="nai" value="25"/>
+		<property name="showName" ref="showName"/>
+	</bean>
+	
+	<bean name="showName" class="day1.spring.ShowName"/>
+
+</beans>
